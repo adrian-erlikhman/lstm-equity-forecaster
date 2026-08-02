@@ -76,6 +76,11 @@ def main():
     print(f"price $: LSTM={mean_absolute_error(inv(yte), inv(lstm_pred)):.3f}  "
           f"Linear={mean_absolute_error(inv(yte), inv(lin_pred)):.3f}")
 
+    from metrics import directional_accuracy
+    print("\n--- Directional accuracy (the metric that matters) ---")
+    print(f"LSTM={directional_accuracy(yte, lstm_pred):.1%}  "
+          f"Linear={directional_accuracy(yte, lin_pred):.1%}  (0.50 = coin flip)")
+
 
 if __name__ == "__main__":
     main()
